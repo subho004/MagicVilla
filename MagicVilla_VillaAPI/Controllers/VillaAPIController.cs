@@ -7,7 +7,7 @@ namespace MagicVilla_VillaAPI.Controllers
     [ApiController]
     public class VillaAPIController: ControllerBase
     {
-        [HttpGet]
+        [HttpGet]ds
         public IEnumerable<Villa> GetVillas() {
             return new List<Villa>()
             {
