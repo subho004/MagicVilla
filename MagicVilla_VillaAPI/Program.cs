@@ -18,7 +18,7 @@ builder.Services.AddControllers(option=>
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddSingleton<ILogging,LoggingV2>(); 
+//builder.Services.AddSingleton<ILogging,LoggingV2>(); //If you want custom logging then only use it
 var app = builder.Build();
 
 
