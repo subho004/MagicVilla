@@ -2,6 +2,7 @@
 using MagicVilla_VillaAPI.Models;
 using MagicVilla_VillaAPI.Models.DTO;
 using Microsoft.AspNetCore.Mvc;
+using System.Numerics;
 
 namespace MagicVilla_VillaAPI.Controllers
 {
@@ -65,5 +66,25 @@ namespace MagicVilla_VillaAPI.Controllers
             VillaStore.villaList.Add(villaDTO);
             return CreatedAtRoute("GetVilla", new {id= villaDTO.Id} ,villaDTO);    
         }
+
+        [HttpDelete("{id:int}", Name = "DeleteVilla")]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        public IActionResult DeleteVilla(int id)
+        {
+            if (id==0)
+            {
+                return BadRequest();
+            }
+            var villa = VillaStore.villaList.FirstOrDefault(u => u.Id == id);
+            if (villa==null)
+            {
+                return NotFound();
+            }
+            VillaStore.villaList.Remove(villa);
+            return NoContent();
+        }
+
     }
 }
