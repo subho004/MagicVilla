@@ -1,0 +1,12 @@
+ /****** Script for SelectTopNRows command from SSMS  ******/
+SELECT TOP (1000) [Id]
+      ,[Name]
+      ,[Details]
+      ,[Rate]
+      ,[Sqft]
+      ,[Occupancy]
+      ,[ImageUrl]
+      ,[Amenity]
+      ,[CreatedDate]
+      ,[UpdatedDate]
+  FROM [Magic_VillaAPI].[dbo].[Villas]
